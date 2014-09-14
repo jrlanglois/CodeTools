@@ -1,0 +1,25 @@
+{
+    "id":           "JRL_Core",
+    "name":         "JRL (Core)",
+    "version":      "1.0.0",
+    "description":  "",
+    "website":      "http://www.jrlanglois.com",
+    "license":      "LGPL",
+
+    "dependencies": [
+                        { "id": "juce_core" },
+                        { "id": "juce_data_structures" },
+                        { "id": "juce_events" },
+                        { "id": "juce_cryptography" }
+                    ],
+
+    "include":      "JuceHeader.h",
+
+    "compile":      [
+                        { "file": "JRLCore.cpp", "target": "! xcode" },
+                        { "file": "JRLCore.cpp", "target": "xcode" }
+                    ],
+
+    "browse":       [
+                    ]
+}

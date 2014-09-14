@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="lpLGEN" name="CodeTools" projectType="guiapp" version="1.0.0"
+              bundleIdentifier="com.yourcompany.CodeTools" includeBinaryInAppConfig="1"
+              jucerVersion="3.1.0">
+  <MAINGROUP id="bX6Q9c" name="CodeTools">
+    <GROUP id="{4F5EF973-C4BD-9AFE-C3A3-60D6C935D19E}" name="Main">
+      <FILE id="b0L2OL" name="BinaryData.cpp" compile="1" resource="0" file="Source/Main/BinaryData.cpp"/>
+      <FILE id="fHS3M8" name="BinaryData.h" compile="0" resource="0" file="Source/Main/BinaryData.h"/>
+      <FILE id="MpHCtD" name="Main.cpp" compile="1" resource="0" file="Source/Main/Main.cpp"/>
+      <FILE id="ACRBcU" name="Main.h" compile="0" resource="0" file="Source/Main/Main.h"/>
+      <FILE id="pPyjHc" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/Main/MainComponent.cpp"/>
+      <FILE id="oSplvU" name="MainComponent.h" compile="0" resource="0" file="Source/Main/MainComponent.h"/>
+      <FILE id="FdLtFa" name="MainWindow.cpp" compile="1" resource="0" file="Source/Main/MainWindow.cpp"/>
+      <FILE id="XkJeg5" name="MainWindow.h" compile="0" resource="0" file="Source/Main/MainWindow.h"/>
+      <FILE id="Rb6uhF" name="UserSettings.cpp" compile="1" resource="0"
+            file="Source/Main/UserSettings.cpp"/>
+      <FILE id="NwU29J" name="UserSettings.h" compile="0" resource="0" file="Source/Main/UserSettings.h"/>
+    </GROUP>
+    <GROUP id="{ED9CFA26-7BF8-1E00-F77F-7917400A49EC}" name="Modules">
+      <GROUP id="{04DA4069-E5FC-6798-BF9B-FE08B7AE8BBD}" name="Core">
+        <FILE id="Ip4heJ" name="JRLCore.cpp" compile="1" resource="0" file="Source/Modules/Core/JRLCore.cpp"/>
+        <FILE id="EGT3C6" name="JRLCore.h" compile="0" resource="0" file="Source/Modules/Core/JRLCore.h"/>
+        <FILE id="RGPUUb" name="juce_module_info" compile="0" resource="0"
+              file="Source/Modules/Core/juce_module_info"/>
+      </GROUP>
+      <GROUP id="{916C49D9-1235-F399-C8ED-CD02669A57A0}" name="Tools">
+        <GROUP id="{FBDF7317-8BD8-6B71-9036-81CF0B1E1EA1}" name="Components">
+          <FILE id="kQNz9U" name="CodeFileListComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/CodeFileListComponent.cpp"/>
+          <FILE id="MTYMGp" name="CodeFileListComponent.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/CodeFileListComponent.h"/>
+          <FILE id="yec1Hq" name="LineEndingsConverterComponent.cpp" compile="0"
+                resource="0" file="Source/Modules/Tools/Components/LineEndingsConverterComponent.cpp"/>
+          <FILE id="mzCQp9" name="LineEndingsConverterComponent.h" compile="0"
+                resource="0" file="Source/Modules/Tools/Components/LineEndingsConverterComponent.h"/>
+          <FILE id="APmDQE" name="ModulariserComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/ModulariserComponent.cpp"/>
+          <FILE id="rDDF72" name="ModulariserComponent.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/ModulariserComponent.h"/>
+          <FILE id="G2zeXy" name="SpacingGrabber.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/SpacingGrabber.cpp"/>
+          <FILE id="o5BxYS" name="SpacingGrabber.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/SpacingGrabber.h"/>
+          <FILE id="gcvIVl" name="TabsToSpacesComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/TabsToSpacesComponent.cpp"/>
+          <FILE id="vZbKVs" name="TabsToSpacesComponent.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/TabsToSpacesComponent.h"/>
+          <FILE id="TxWaml" name="ToolComponent.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Components/ToolComponent.cpp"/>
+          <FILE id="jHdTNM" name="ToolComponent.h" compile="0" resource="0" file="Source/Modules/Tools/Components/ToolComponent.h"/>
+          <FILE id="d4YZKg" name="TrailingWhitespaceCleanerComponent.cpp" compile="0"
+                resource="0" file="Source/Modules/Tools/Components/TrailingWhitespaceCleanerComponent.cpp"/>
+          <FILE id="k2ODJy" name="TrailingWhitespaceCleanerComponent.h" compile="0"
+                resource="0" file="Source/Modules/Tools/Components/TrailingWhitespaceCleanerComponent.h"/>
+        </GROUP>
+        <GROUP id="{B49C0EF8-B9ED-7BB7-EF41-091AD6092A9B}" name="Misc">
+          <FILE id="F1xevs" name="CodeFileList.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Misc/CodeFileList.cpp"/>
+          <FILE id="HTsHpi" name="CodeFileList.h" compile="0" resource="0" file="Source/Modules/Tools/Misc/CodeFileList.h"/>
+          <FILE id="VbPrDr" name="CodeTokeniserFactory.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Misc/CodeTokeniserFactory.cpp"/>
+          <FILE id="JaTKF1" name="CodeTokeniserFactory.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Misc/CodeTokeniserFactory.h"/>
+        </GROUP>
+        <GROUP id="{137B54C3-A3D6-AC81-BCCA-EA2EAC4E46C4}" name="Types">
+          <FILE id="afOdOL" name="CodeTool.cpp" compile="0" resource="0" file="Source/Modules/Tools/Types/CodeTool.cpp"/>
+          <FILE id="vD6oGB" name="CodeTool.h" compile="0" resource="0" file="Source/Modules/Tools/Types/CodeTool.h"/>
+          <FILE id="e4xMRJ" name="LineEndingsConverter.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Types/LineEndingsConverter.cpp"/>
+          <FILE id="aDHWI5" name="LineEndingsConverter.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Types/LineEndingsConverter.h"/>
+          <FILE id="RJZe8A" name="Modulariser.cpp" compile="0" resource="0" file="Source/Modules/Tools/Types/Modulariser.cpp"/>
+          <FILE id="b6yXDd" name="Modulariser.h" compile="0" resource="0" file="Source/Modules/Tools/Types/Modulariser.h"/>
+          <FILE id="ealEUV" name="StringLiteralCapitaliser.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Types/StringLiteralCapitaliser.cpp"/>
+          <FILE id="ZIOSbi" name="StringLiteralCapitaliser.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Types/StringLiteralCapitaliser.h"/>
+          <FILE id="O4GcX1" name="TabsToSpaces.cpp" compile="0" resource="0"
+                file="Source/Modules/Tools/Types/TabsToSpaces.cpp"/>
+          <FILE id="DnYwsJ" name="TabsToSpaces.h" compile="0" resource="0" file="Source/Modules/Tools/Types/TabsToSpaces.h"/>
+          <FILE id="Ho6M1x" name="TrailingWhitespaceCleaner.cpp" compile="0"
+                resource="0" file="Source/Modules/Tools/Types/TrailingWhitespaceCleaner.cpp"/>
+          <FILE id="vqTCSY" name="TrailingWhitespaceCleaner.h" compile="0" resource="0"
+                file="Source/Modules/Tools/Types/TrailingWhitespaceCleaner.h"/>
+        </GROUP>
+        <FILE id="c7uFBp" name="JRLTools.cpp" compile="1" resource="0" file="Source/Modules/Tools/JRLTools.cpp"/>
+        <FILE id="rJYoBC" name="JRLTools.h" compile="0" resource="0" file="Source/Modules/Tools/JRLTools.h"/>
+      </GROUP>
+      <FILE id="WkIGmn" name="JRLHeader.h" compile="0" resource="0" file="Source/Modules/JRLHeader.h"/>
+    </GROUP>
+  </MAINGROUP>
+  <EXPORTFORMATS>
+    <VS2012 targetFolder="Builds/VisualStudio2012">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="CodeTools"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="CodeTools"/>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="CodeTools"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="2" targetName="CodeTools"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+      </MODULEPATHS>
+    </VS2012>
+    <VS2013 targetFolder="Builds/VisualStudio2013">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="1" optimisation="1" targetName="CodeTools"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="32-bit"
+                       isDebug="0" optimisation="2" targetName="CodeTools"/>
+        <CONFIGURATION name="Debug" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="1" optimisation="1" targetName="CodeTools"/>
+        <CONFIGURATION name="Release" winWarningLevel="4" generateManifest="1" winArchitecture="x64"
+                       isDebug="0" optimisation="2" targetName="CodeTools"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+      </MODULEPATHS>
+    </VS2013>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="1" optimisation="1" targetName="CodeTools"/>
+        <CONFIGURATION name="Release" osxSDK="default" osxCompatibility="default" osxArchitecture="default"
+                       isDebug="0" optimisation="2" targetName="CodeTools"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+    <CODEBLOCKS targetFolder="Builds/CodeBlocks">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" isDebug="1" optimisation="1" targetName="CodeTools"/>
+        <CONFIGURATION name="Release" isDebug="0" optimisation="2" targetName="CodeTools"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+      </MODULEPATHS>
+    </CODEBLOCKS>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_cryptography" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_data_structures" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_events" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_graphics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_basics" showAllCode="1" useLocalCopy="0"/>
+    <MODULES id="juce_gui_extra" showAllCode="1" useLocalCopy="0"/>
+  </MODULES>
+  <JUCEOPTIONS JUCE_ENABLE_REPAINT_DEBUGGING="disabled" JUCE_WEB_BROWSER="disabled"
+               JUCE_ENABLE_LIVE_CONSTANT_EDITOR="disabled"/>
+</JUCERPROJECT>
