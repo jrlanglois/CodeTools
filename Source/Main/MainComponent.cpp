@@ -194,6 +194,8 @@ MainComponent::MainComponent() :
     codeEditor = new juce::CodeEditorComponent (codeDocument, nullptr);
 
     addAndMakeVisible (toolbar);
+    addAndMakeVisible (&codeFiles);
+    addAndMakeVisible (codeEditor);
 }
 
 MainComponent::~MainComponent()
@@ -211,18 +213,45 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::resized()
 {
     const int width = getWidth();
-    //const int height = getHeight();
-    //const int halfHeight = height / 2;
-    //const int offset = 4;
-    //const int doubleOffset = offset * 2;
+    const int height = getHeight();
 
     toolbar->setBounds (0, 0, width, 48);
+
+    const int toolbarBottom = toolbar->getBottom();
+    const int itemHeight = height - toolbarBottom;
+
+    codeFiles.setBounds (0,
+                         toolbarBottom,
+                         juce::roundToIntAccurate ((double) width * (1.0 / 3.0)),
+                         itemHeight);
+
+    const int codeFilesRight = codeFiles.getRight();
+    codeEditor->setBounds (codeFilesRight,
+                           toolbarBottom,
+                           width - codeFilesRight,
+                           itemHeight);
 }
 
 void MainComponent::buttonClicked (juce::Button* const button)
 {
     if (juce::ToolbarButton* tb = dynamic_cast<juce::ToolbarButton*> (button))
     {
+        CodeFileList codeFilesToEdit;
+
+        {
+            juce::StringArray files (codeFiles.getSelectedCodeFiles());
+
+            if (files.size() <= 0)
+            {
+                const juce::Array<juce::File>& list (codeFiles.getCodeFiles().getFiles());
+
+                for (int i = 0; i < list.size(); ++i)
+                    files.addIfNotAlreadyThere (list.getUnchecked (i).getFullPathName());
+            }
+
+            codeFilesToEdit.addFiles (files);
+        }
+
         switch (tb->getItemId())
         {
             case ToolbarItemFactory::ProjectNew:
@@ -238,15 +267,20 @@ void MainComponent::buttonClicked (juce::Button* const button)
             break;
 
             case ToolbarItemFactory::ProjectUndo:
+                undoManager.undo();
             break;
 
             case ToolbarItemFactory::ProjectRedo:
+                undoManager.redo();
             break;
 
             case ToolbarItemFactory::FilesCapitaliseStringLiterals:
             break;
 
             case ToolbarItemFactory::FilesCleanTrailingWhitespace:
+                TrailingWhitespaceCleaner (codeFilesToEdit)
+                    .perform (true,
+                              TrailingWhitespaceCleaner::RemoveAll);
             break;
 
             case ToolbarItemFactory::FilesConvertLineEndings:

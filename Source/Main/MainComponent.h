@@ -9,7 +9,6 @@
 
 */
 class MainComponent : public juce::Component,
-                      private juce::ComponentListener,
                       private juce::Button::Listener
 {
 public:
@@ -34,10 +33,12 @@ private:
     //==============================================================================
     juce::TooltipWindow tooltipWindow;
     juce::SystemTrayIconComponent trayIcon;
+    juce::UndoManager undoManager;
 
     juce::ScopedPointer<ToolbarItemFactory> toolbarItemFactory;
     juce::ScopedPointer<juce::Toolbar> toolbar;
 
+    CodeFileListComponent codeFiles;
     juce::CodeDocument codeDocument;
     juce::ScopedPointer<juce::CodeEditorComponent> codeEditor;
 

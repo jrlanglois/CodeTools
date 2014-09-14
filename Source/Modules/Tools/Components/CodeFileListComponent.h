@@ -23,6 +23,20 @@ public:
     /** Get a reference to the list of code files */
     const CodeFileList& getCodeFiles() const noexcept { return codeFiles; }
 
+    /** Get a list of the selected code files */
+    juce::StringArray getSelectedCodeFiles();
+
+    //==============================================================================
+    class Listener
+    {
+        virtual ~Listener() { }
+
+        virtual void numberOfCodeFilesChanged (int lastAmount, int newAmount) = 0;
+    };
+
+    void addListener (Listener* listener);
+    void removeListener (Listener* listener);
+
     //==============================================================================
     /** @internal */
     void resized() override;
@@ -48,8 +62,9 @@ public:
 
 private:
     //==============================================================================
-    juce::ListBox fileListBox;
+    juce::ListenerList<Listener> listeners;
     CodeFileList codeFiles;
+    juce::ListBox fileListBox;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (CodeFileListComponent)

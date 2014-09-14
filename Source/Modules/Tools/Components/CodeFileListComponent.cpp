@@ -10,6 +10,18 @@ CodeFileListComponent::CodeFileListComponent()
 }
 
 //==============================================================================
+juce::StringArray CodeFileListComponent::getSelectedCodeFiles()
+{
+    juce::StringArray files;
+
+    const juce::SparseSet<int> selectedRows (fileListBox.getSelectedRows());
+
+    for (int i = 0; i < selectedRows.size(); ++i)
+        files.addIfNotAlreadyThere (codeFiles[i]);
+
+    return files;
+}
+
 void CodeFileListComponent::clearFiles()
 {
     if (codeFiles.getNumFiles() > 0)
@@ -32,6 +44,17 @@ void CodeFileListComponent::clearFiles()
 }
 
 //==============================================================================
+void CodeFileListComponent::addListener (Listener* const listener)
+{
+    listeners.add (listener);
+}
+
+void CodeFileListComponent::removeListener (Listener* const listener)
+{
+    listeners.remove (listener);
+}
+
+//==============================================================================
 void CodeFileListComponent::resized()
 {
     fileListBox.setBounds (0, 0, getWidth(), getHeight());
@@ -40,7 +63,7 @@ void CodeFileListComponent::resized()
 //=============================================================================
 bool CodeFileListComponent::isInterestedInFileDrag (const juce::StringArray& /*files*/)
 {
-    return true; //Accept all files. Any invalid ones will be filtered later...
+    return true; //Accept all files. Any invalid ones will be filtered out later.
 }
 
 void CodeFileListComponent::filesDropped (const juce::StringArray& incomingFiles, const int, const int)
@@ -93,7 +116,7 @@ void CodeFileListComponent::paintListBoxItem (const int rowNumber,
     if (isRowSelected)
     {
         g.fillAll (juce::Colours::white.darker());
-        g.setColour (juce::Colours::white.darker().contrasting());
+        g.setColour (fileListBox.findColour (juce::ListBox::textColourId).contrasting());
     }
     else
     {
@@ -111,7 +134,7 @@ void CodeFileListComponent::paintListBoxItem (const int rowNumber,
     const float offset = 5.0f;
     const float thickness = 0.25f;
 
-    g.setColour (juce::Colours::lightgrey);
+    g.setColour (juce::Colours::lightgrey.withAlpha (0.3f));
 
     g.drawLine (offset, h - thickness,
                 w - (offset * 2.0f), h - thickness,

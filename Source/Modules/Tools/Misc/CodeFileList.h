@@ -27,7 +27,7 @@ public:
         Obviously the reference returned shouldn't be stored for later use, as the
         string it refers to may disappear when the array changes.
     */
-    const juce::String& operator[] (int index) const noexcept { return files[index].getFullPathName(); }
+    juce::String operator[] (int index) const noexcept { return files[index].getFullPathName(); }
 
     /** */
     const juce::File& getFile (int index) const noexcept { return files.getReference (index); }
