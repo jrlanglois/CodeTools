@@ -97,6 +97,11 @@
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
+    <Unit filename="../../Source/Main/CommandIDs.cpp"/>
+    <Unit filename="../../Source/Main/CommandIDs.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
     <Unit filename="../../Source/Main/Main.cpp"/>
     <Unit filename="../../Source/Main/Main.h">
       <Option compile="0"/>
@@ -147,14 +152,6 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Modules/Tools/Components/ModulariserComponent.h">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Modules/Tools/Components/SpacingGrabber.cpp">
-      <Option compile="0"/>
-      <Option link="0"/>
-    </Unit>
-    <Unit filename="../../Source/Modules/Tools/Components/SpacingGrabber.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>
@@ -252,6 +249,11 @@
       <Option link="0"/>
     </Unit>
     <Unit filename="../../Source/Modules/JRLHeader.h">
+      <Option compile="0"/>
+      <Option link="0"/>
+    </Unit>
+    <Unit filename="../../Source/Windows/ConfigurationWindow.cpp"/>
+    <Unit filename="../../Source/Windows/ConfigurationWindow.h">
       <Option compile="0"/>
       <Option link="0"/>
     </Unit>

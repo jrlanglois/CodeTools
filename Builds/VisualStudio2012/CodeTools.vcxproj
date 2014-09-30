@@ -240,6 +240,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Main\BinaryData.cpp"/>
+    <ClCompile Include="..\..\Source\Main\CommandIDs.cpp"/>
     <ClCompile Include="..\..\Source\Main\Main.cpp"/>
     <ClCompile Include="..\..\Source\Main\MainComponent.cpp"/>
     <ClCompile Include="..\..\Source\Main\MainWindow.cpp"/>
@@ -252,9 +253,6 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.cpp">
@@ -291,6 +289,7 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\JRLTools.cpp"/>
+    <ClCompile Include="..\..\Source\Windows\ConfigurationWindow.cpp"/>
     <ClCompile Include="..\..\..\juce\modules\juce_core\text\juce_CharacterFunctions.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -1126,6 +1125,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\Main\BinaryData.h"/>
+    <ClInclude Include="..\..\Source\Main\CommandIDs.h"/>
     <ClInclude Include="..\..\Source\Main\Main.h"/>
     <ClInclude Include="..\..\Source\Main\MainComponent.h"/>
     <ClInclude Include="..\..\Source\Main\MainWindow.h"/>
@@ -1134,7 +1134,6 @@
     <ClInclude Include="..\..\Source\Modules\Tools\Components\CodeFileListComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\LineEndingsConverterComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.h"/>
-    <ClInclude Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.h"/>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\ToolComponent.h"/>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\TrailingWhitespaceCleanerComponent.h"/>
@@ -1148,6 +1147,7 @@
     <ClInclude Include="..\..\Source\Modules\Tools\Types\TrailingWhitespaceCleaner.h"/>
     <ClInclude Include="..\..\Source\Modules\Tools\JRLTools.h"/>
     <ClInclude Include="..\..\Source\Modules\JRLHeader.h"/>
+    <ClInclude Include="..\..\Source\Windows\ConfigurationWindow.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\text\juce_CharacterFunctions.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\text\juce_CharPointer_ASCII.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\text\juce_CharPointer_UTF8.h"/>

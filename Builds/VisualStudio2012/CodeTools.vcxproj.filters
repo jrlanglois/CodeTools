@@ -26,6 +26,9 @@
     <Filter Include="CodeTools\Modules\Tools\Types">
       <UniqueIdentifier>{D1ABC726-DD66-44C6-5AE1-E4A42ACE8950}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CodeTools\Windows">
+      <UniqueIdentifier>{0C9DD737-0B17-ED04-F5D5-83B9EF8F6E6F}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Juce Modules">
       <UniqueIdentifier>{422C46B7-0467-2DB0-BF3C-16DFCAFD69AC}</UniqueIdentifier>
     </Filter>
@@ -232,6 +235,9 @@
     <ClCompile Include="..\..\Source\Main\BinaryData.cpp">
       <Filter>CodeTools\Main</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Main\CommandIDs.cpp">
+      <Filter>CodeTools\Main</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\Main\Main.cpp">
       <Filter>CodeTools\Main</Filter>
     </ClCompile>
@@ -254,9 +260,6 @@
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.cpp">
-      <Filter>CodeTools\Modules\Tools\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.cpp">
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.cpp">
@@ -294,6 +297,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\JRLTools.cpp">
       <Filter>CodeTools\Modules\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\Windows\ConfigurationWindow.cpp">
+      <Filter>CodeTools\Windows</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\juce\modules\juce_core\text\juce_CharacterFunctions.cpp">
       <Filter>Juce Modules\juce_core\text</Filter>
@@ -1206,6 +1212,9 @@
     <ClInclude Include="..\..\Source\Main\BinaryData.h">
       <Filter>CodeTools\Main</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\Main\CommandIDs.h">
+      <Filter>CodeTools\Main</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\Main\Main.h">
       <Filter>CodeTools\Main</Filter>
     </ClInclude>
@@ -1228,9 +1237,6 @@
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.h">
-      <Filter>CodeTools\Modules\Tools\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.h">
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.h">
@@ -1271,6 +1277,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\JRLHeader.h">
       <Filter>CodeTools\Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Windows\ConfigurationWindow.h">
+      <Filter>CodeTools\Windows</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\juce\modules\juce_core\text\juce_CharacterFunctions.h">
       <Filter>Juce Modules\juce_core\text</Filter>

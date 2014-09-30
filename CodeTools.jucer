@@ -5,90 +5,94 @@
               jucerVersion="3.1.0">
   <MAINGROUP id="bX6Q9c" name="CodeTools">
     <GROUP id="{4F5EF973-C4BD-9AFE-C3A3-60D6C935D19E}" name="Main">
-      <FILE id="b0L2OL" name="BinaryData.cpp" compile="1" resource="0" file="Source/Main/BinaryData.cpp"/>
-      <FILE id="fHS3M8" name="BinaryData.h" compile="0" resource="0" file="Source/Main/BinaryData.h"/>
-      <FILE id="MpHCtD" name="Main.cpp" compile="1" resource="0" file="Source/Main/Main.cpp"/>
-      <FILE id="ACRBcU" name="Main.h" compile="0" resource="0" file="Source/Main/Main.h"/>
-      <FILE id="pPyjHc" name="MainComponent.cpp" compile="1" resource="0"
+      <FILE id="DKseAY" name="BinaryData.cpp" compile="1" resource="0" file="Source/Main/BinaryData.cpp"/>
+      <FILE id="dPUg8j" name="BinaryData.h" compile="0" resource="0" file="Source/Main/BinaryData.h"/>
+      <FILE id="PFDEgJ" name="CommandIDs.cpp" compile="1" resource="0" file="Source/Main/CommandIDs.cpp"/>
+      <FILE id="OMTiHk" name="CommandIDs.h" compile="0" resource="0" file="Source/Main/CommandIDs.h"/>
+      <FILE id="LsUF1n" name="Main.cpp" compile="1" resource="0" file="Source/Main/Main.cpp"/>
+      <FILE id="tJzIb7" name="Main.h" compile="0" resource="0" file="Source/Main/Main.h"/>
+      <FILE id="ONynkM" name="MainComponent.cpp" compile="1" resource="0"
             file="Source/Main/MainComponent.cpp"/>
-      <FILE id="oSplvU" name="MainComponent.h" compile="0" resource="0" file="Source/Main/MainComponent.h"/>
-      <FILE id="FdLtFa" name="MainWindow.cpp" compile="1" resource="0" file="Source/Main/MainWindow.cpp"/>
-      <FILE id="XkJeg5" name="MainWindow.h" compile="0" resource="0" file="Source/Main/MainWindow.h"/>
-      <FILE id="Rb6uhF" name="UserSettings.cpp" compile="1" resource="0"
+      <FILE id="Tb7lVu" name="MainComponent.h" compile="0" resource="0" file="Source/Main/MainComponent.h"/>
+      <FILE id="AZSpdz" name="MainWindow.cpp" compile="1" resource="0" file="Source/Main/MainWindow.cpp"/>
+      <FILE id="BZyOFZ" name="MainWindow.h" compile="0" resource="0" file="Source/Main/MainWindow.h"/>
+      <FILE id="frx30D" name="UserSettings.cpp" compile="1" resource="0"
             file="Source/Main/UserSettings.cpp"/>
-      <FILE id="NwU29J" name="UserSettings.h" compile="0" resource="0" file="Source/Main/UserSettings.h"/>
+      <FILE id="dJMvh7" name="UserSettings.h" compile="0" resource="0" file="Source/Main/UserSettings.h"/>
     </GROUP>
     <GROUP id="{ED9CFA26-7BF8-1E00-F77F-7917400A49EC}" name="Modules">
       <GROUP id="{04DA4069-E5FC-6798-BF9B-FE08B7AE8BBD}" name="Core">
-        <FILE id="Ip4heJ" name="JRLCore.cpp" compile="1" resource="0" file="Source/Modules/Core/JRLCore.cpp"/>
-        <FILE id="EGT3C6" name="JRLCore.h" compile="0" resource="0" file="Source/Modules/Core/JRLCore.h"/>
-        <FILE id="RGPUUb" name="juce_module_info" compile="0" resource="0"
+        <FILE id="AoTwmn" name="JRLCore.cpp" compile="1" resource="0" file="Source/Modules/Core/JRLCore.cpp"/>
+        <FILE id="t7wuFX" name="JRLCore.h" compile="0" resource="0" file="Source/Modules/Core/JRLCore.h"/>
+        <FILE id="zzIiAe" name="juce_module_info" compile="0" resource="0"
               file="Source/Modules/Core/juce_module_info"/>
       </GROUP>
       <GROUP id="{916C49D9-1235-F399-C8ED-CD02669A57A0}" name="Tools">
         <GROUP id="{FBDF7317-8BD8-6B71-9036-81CF0B1E1EA1}" name="Components">
-          <FILE id="kQNz9U" name="CodeFileListComponent.cpp" compile="0" resource="0"
+          <FILE id="Xowz82" name="CodeFileListComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/CodeFileListComponent.cpp"/>
-          <FILE id="MTYMGp" name="CodeFileListComponent.h" compile="0" resource="0"
+          <FILE id="oyQRtj" name="CodeFileListComponent.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/CodeFileListComponent.h"/>
-          <FILE id="yec1Hq" name="LineEndingsConverterComponent.cpp" compile="0"
+          <FILE id="euOYfd" name="LineEndingsConverterComponent.cpp" compile="0"
                 resource="0" file="Source/Modules/Tools/Components/LineEndingsConverterComponent.cpp"/>
-          <FILE id="mzCQp9" name="LineEndingsConverterComponent.h" compile="0"
+          <FILE id="lwszYe" name="LineEndingsConverterComponent.h" compile="0"
                 resource="0" file="Source/Modules/Tools/Components/LineEndingsConverterComponent.h"/>
-          <FILE id="APmDQE" name="ModulariserComponent.cpp" compile="0" resource="0"
+          <FILE id="KKEh1a" name="ModulariserComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/ModulariserComponent.cpp"/>
-          <FILE id="rDDF72" name="ModulariserComponent.h" compile="0" resource="0"
+          <FILE id="qXmNdV" name="ModulariserComponent.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/ModulariserComponent.h"/>
-          <FILE id="G2zeXy" name="SpacingGrabber.cpp" compile="0" resource="0"
-                file="Source/Modules/Tools/Components/SpacingGrabber.cpp"/>
-          <FILE id="o5BxYS" name="SpacingGrabber.h" compile="0" resource="0"
-                file="Source/Modules/Tools/Components/SpacingGrabber.h"/>
-          <FILE id="gcvIVl" name="TabsToSpacesComponent.cpp" compile="0" resource="0"
+          <FILE id="r9UWBH" name="TabsToSpacesComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/TabsToSpacesComponent.cpp"/>
-          <FILE id="vZbKVs" name="TabsToSpacesComponent.h" compile="0" resource="0"
+          <FILE id="ZvrSv2" name="TabsToSpacesComponent.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/TabsToSpacesComponent.h"/>
-          <FILE id="TxWaml" name="ToolComponent.cpp" compile="0" resource="0"
+          <FILE id="AVwfXz" name="ToolComponent.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Components/ToolComponent.cpp"/>
-          <FILE id="jHdTNM" name="ToolComponent.h" compile="0" resource="0" file="Source/Modules/Tools/Components/ToolComponent.h"/>
-          <FILE id="d4YZKg" name="TrailingWhitespaceCleanerComponent.cpp" compile="0"
+          <FILE id="e2oZxy" name="ToolComponent.h" compile="0" resource="0" file="Source/Modules/Tools/Components/ToolComponent.h"/>
+          <FILE id="cx2oqx" name="TrailingWhitespaceCleanerComponent.cpp" compile="0"
                 resource="0" file="Source/Modules/Tools/Components/TrailingWhitespaceCleanerComponent.cpp"/>
-          <FILE id="k2ODJy" name="TrailingWhitespaceCleanerComponent.h" compile="0"
+          <FILE id="UVnL7A" name="TrailingWhitespaceCleanerComponent.h" compile="0"
                 resource="0" file="Source/Modules/Tools/Components/TrailingWhitespaceCleanerComponent.h"/>
         </GROUP>
         <GROUP id="{B49C0EF8-B9ED-7BB7-EF41-091AD6092A9B}" name="Misc">
-          <FILE id="F1xevs" name="CodeFileList.cpp" compile="0" resource="0"
+          <FILE id="paYKLt" name="CodeFileList.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Misc/CodeFileList.cpp"/>
-          <FILE id="HTsHpi" name="CodeFileList.h" compile="0" resource="0" file="Source/Modules/Tools/Misc/CodeFileList.h"/>
-          <FILE id="VbPrDr" name="CodeTokeniserFactory.cpp" compile="0" resource="0"
+          <FILE id="bth042" name="CodeFileList.h" compile="0" resource="0" file="Source/Modules/Tools/Misc/CodeFileList.h"/>
+          <FILE id="S9LVfO" name="CodeTokeniserFactory.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Misc/CodeTokeniserFactory.cpp"/>
-          <FILE id="JaTKF1" name="CodeTokeniserFactory.h" compile="0" resource="0"
+          <FILE id="I6rMyG" name="CodeTokeniserFactory.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Misc/CodeTokeniserFactory.h"/>
         </GROUP>
         <GROUP id="{137B54C3-A3D6-AC81-BCCA-EA2EAC4E46C4}" name="Types">
-          <FILE id="afOdOL" name="CodeTool.cpp" compile="0" resource="0" file="Source/Modules/Tools/Types/CodeTool.cpp"/>
-          <FILE id="vD6oGB" name="CodeTool.h" compile="0" resource="0" file="Source/Modules/Tools/Types/CodeTool.h"/>
-          <FILE id="e4xMRJ" name="LineEndingsConverter.cpp" compile="0" resource="0"
+          <FILE id="u5UgTh" name="CodeTool.cpp" compile="0" resource="0" file="Source/Modules/Tools/Types/CodeTool.cpp"/>
+          <FILE id="FAYeAc" name="CodeTool.h" compile="0" resource="0" file="Source/Modules/Tools/Types/CodeTool.h"/>
+          <FILE id="O00Etv" name="LineEndingsConverter.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Types/LineEndingsConverter.cpp"/>
-          <FILE id="aDHWI5" name="LineEndingsConverter.h" compile="0" resource="0"
+          <FILE id="hHgHQy" name="LineEndingsConverter.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Types/LineEndingsConverter.h"/>
-          <FILE id="RJZe8A" name="Modulariser.cpp" compile="0" resource="0" file="Source/Modules/Tools/Types/Modulariser.cpp"/>
-          <FILE id="b6yXDd" name="Modulariser.h" compile="0" resource="0" file="Source/Modules/Tools/Types/Modulariser.h"/>
-          <FILE id="ealEUV" name="StringLiteralCapitaliser.cpp" compile="0" resource="0"
+          <FILE id="XULATn" name="Modulariser.cpp" compile="0" resource="0" file="Source/Modules/Tools/Types/Modulariser.cpp"/>
+          <FILE id="aiy1Cl" name="Modulariser.h" compile="0" resource="0" file="Source/Modules/Tools/Types/Modulariser.h"/>
+          <FILE id="BsSHZA" name="StringLiteralCapitaliser.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Types/StringLiteralCapitaliser.cpp"/>
-          <FILE id="ZIOSbi" name="StringLiteralCapitaliser.h" compile="0" resource="0"
+          <FILE id="Vr3IGT" name="StringLiteralCapitaliser.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Types/StringLiteralCapitaliser.h"/>
-          <FILE id="O4GcX1" name="TabsToSpaces.cpp" compile="0" resource="0"
+          <FILE id="b5o6dB" name="TabsToSpaces.cpp" compile="0" resource="0"
                 file="Source/Modules/Tools/Types/TabsToSpaces.cpp"/>
-          <FILE id="DnYwsJ" name="TabsToSpaces.h" compile="0" resource="0" file="Source/Modules/Tools/Types/TabsToSpaces.h"/>
-          <FILE id="Ho6M1x" name="TrailingWhitespaceCleaner.cpp" compile="0"
+          <FILE id="gBHTBf" name="TabsToSpaces.h" compile="0" resource="0" file="Source/Modules/Tools/Types/TabsToSpaces.h"/>
+          <FILE id="qMsuHY" name="TrailingWhitespaceCleaner.cpp" compile="0"
                 resource="0" file="Source/Modules/Tools/Types/TrailingWhitespaceCleaner.cpp"/>
-          <FILE id="vqTCSY" name="TrailingWhitespaceCleaner.h" compile="0" resource="0"
+          <FILE id="y49V8t" name="TrailingWhitespaceCleaner.h" compile="0" resource="0"
                 file="Source/Modules/Tools/Types/TrailingWhitespaceCleaner.h"/>
         </GROUP>
-        <FILE id="c7uFBp" name="JRLTools.cpp" compile="1" resource="0" file="Source/Modules/Tools/JRLTools.cpp"/>
-        <FILE id="rJYoBC" name="JRLTools.h" compile="0" resource="0" file="Source/Modules/Tools/JRLTools.h"/>
+        <FILE id="o0m8sE" name="JRLTools.cpp" compile="1" resource="0" file="Source/Modules/Tools/JRLTools.cpp"/>
+        <FILE id="r7Cux2" name="JRLTools.h" compile="0" resource="0" file="Source/Modules/Tools/JRLTools.h"/>
       </GROUP>
-      <FILE id="WkIGmn" name="JRLHeader.h" compile="0" resource="0" file="Source/Modules/JRLHeader.h"/>
+      <FILE id="IGNnvh" name="JRLHeader.h" compile="0" resource="0" file="Source/Modules/JRLHeader.h"/>
+    </GROUP>
+    <GROUP id="{57ED9023-7B66-33D6-2528-18673DE5213B}" name="Windows">
+      <FILE id="iOvGM7" name="ConfigurationWindow.cpp" compile="1" resource="0"
+            file="Source/Windows/ConfigurationWindow.cpp"/>
+      <FILE id="BPBrsa" name="ConfigurationWindow.h" compile="0" resource="0"
+            file="Source/Windows/ConfigurationWindow.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
