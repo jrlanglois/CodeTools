@@ -3,7 +3,6 @@
 #include "Components/CodeFileListComponent.cpp"
 #include "Components/LineEndingsConverterComponent.cpp"
 #include "Components/ModulariserComponent.cpp"
-#include "Components/SpacingGrabber.cpp"
 #include "Components/TabsToSpacesComponent.cpp"
 #include "Components/ToolComponent.cpp"
 #include "Components/TrailingWhitespaceCleanerComponent.cpp"

@@ -143,32 +143,9 @@ double UserSettings::getDouble (const juce::String& name, const double defaultVa
 }
 
 //==============================================================================
-void UserSettings::setString (const juce::String& name, const juce::String& value)
-{
-    setProperty (name, value);
-}
-
-void UserSettings::setBool (const juce::String& name, const bool value)
-{
-    setProperty (name, value);
-}
-
-void UserSettings::setInt (const juce::String& name, const int value)
-{
-    setProperty (name, value);
-}
-
-void UserSettings::setInt64 (const juce::String& name, const juce::int64 value)
-{
-    setProperty (name, value);
-}
-
-void UserSettings::setFloat (const juce::String& name, const float value)
-{
-    setProperty (name, value);
-}
-
-void UserSettings::setDouble (const juce::String& name, const double value)
-{
-    setProperty (name, value);
-}
+void UserSettings::setString (const juce::String& name, const juce::String& value)  { setProperty (name, value); }
+void UserSettings::setBool (const juce::String& name, const bool value)             { setProperty (name, value); }
+void UserSettings::setInt (const juce::String& name, const int value)               { setProperty (name, value); }
+void UserSettings::setInt64 (const juce::String& name, const juce::int64 value)     { setProperty (name, value); }
+void UserSettings::setFloat (const juce::String& name, const float value)           { setProperty (name, value); }
+void UserSettings::setDouble (const juce::String& name, const double value)         { setProperty (name, value); }

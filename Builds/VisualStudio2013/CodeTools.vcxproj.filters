@@ -258,9 +258,6 @@
     <ClCompile Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.cpp">
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.cpp">
-      <Filter>CodeTools\Modules\Tools\Components</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.cpp">
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClCompile>
@@ -1146,6 +1143,9 @@
     <ClCompile Include="..\..\Source\Windows\ConfigurationWindow.cpp">
       <Filter>CodeTools\Windows</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\Main\CommandIDs.cpp">
+      <Filter>CodeTools\Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\Main\BinaryData.h">
@@ -1173,9 +1173,6 @@
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.h">
-      <Filter>CodeTools\Modules\Tools\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.h">
       <Filter>CodeTools\Modules\Tools\Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.h">
@@ -2233,6 +2230,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Source\Windows\ConfigurationWindow.h">
       <Filter>CodeTools\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\Main\CommandIDs.h">
+      <Filter>CodeTools\Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -14,7 +14,8 @@ juce::String LineEndingsConverter::endingsFormatToString (const LineEndingFormat
         case BothCRLF:              return "\r\n";
         case BothLFCR:              return "\n\r";
 
-        default: break;
+        default:
+        break;
     };
 
     jassertfalse;
@@ -23,17 +24,20 @@ juce::String LineEndingsConverter::endingsFormatToString (const LineEndingFormat
 
 juce::StringArray LineEndingsConverter::getEndingFormatsAsStrings() noexcept
 {
-    const char* const names[] =
+    static const char* const ops[] =
     {
-        "None [Puts everything on the same line]",
-        "Line-Feed Only [e.g.: Mac, Unix-based]",
-        "Carriage Return Only",
-        "Both CR/LF [e.g.: Windows, typical code line-endings]",
-        "Both LF/CR",
+        NEEDS_TRANS ("None [Puts everything on the same line]"),
+        NEEDS_TRANS ("Line-Feed Only [e.g.: Mac, Unix-based]"),
+        NEEDS_TRANS ("Carriage Return Only"),
+        NEEDS_TRANS ("Both CR/LF [e.g.: Windows, typical code line-endings]"),
+        NEEDS_TRANS ("Both LF/CR"),
         nullptr
     };
 
-    return juce::StringArray (names);
+    juce::StringArray names (ops);
+    translate (names);
+
+    return names;
 }
 
 //==============================================================================

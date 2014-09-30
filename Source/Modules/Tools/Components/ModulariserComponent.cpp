@@ -1,22 +1,22 @@
 ModulariserComponent::ModulariserComponent (const CodeFileList& codeFiles) :
-    ToolComponent ("Modulariser", codeFiles)
+    ToolComponent (TRANS ("Modulariser"), codeFiles)
 {
-    addTextButton (btnGenerate, "Generate", "Generates a module at the specified folder.");
-    addTextButton (btnBrowse, "Browse...", "Browse for a path to specify as the destination folder.");
+    addTextButton (btnGenerate, TRANS ("Generate"), TRANS ("Generates a module at the specified folder."));
+    addTextButton (btnBrowse, TRANS ("Browse") + "...", TRANS ("Browse for a path to specify as the destination folder."));
 
-    addLabel (lblAdditionalHeaders, "Additional Headers:", "Comma separated, wrapped with either <> or \"\".");
-    addLabel (lblModuleFilename, "Module Name:", "Will be the name for header and CPP files.");
-    addLabel (lblHeaderGuard, "Header Guard:", "Will be the header file\'s include guard.");
-    addLabel (lblNamespace, "Namespace:", "Optional.\n\nWill wrap the headers and source files with the namespace name.");
+    addLabel (lblAdditionalHeaders, TRANS ("Additional Headers:"), TRANS ("Comma separated, wrapped with either <> or \"\"."));
+    addLabel (lblModuleFilename, TRANS ("Module Name:") + ":", TRANS ("Will be the name for header and CPP files."));
+    addLabel (lblHeaderGuard, TRANS ("Header Guard") + ":", TRANS ("Will be the header file\'s include guard."));
+    addLabel (lblNamespace, TRANS ("Namespace") + ":", TRANS ("Optional.\n\nWill wrap the headers and source files with the namespace name."));
     addLabel (lblDestinationFolder,
-              "Destination Folder:",
-              "Folder that will contain the newly created module file for the listed files."
-              "\n\nIf the folder does not exist, it will be created."
-              "\n\nIf the folder contains files with the same name, they will be overwritten!");
+              TRANS ("Destination Folder") + ":",
+              TRANS ("Folder that will contain the newly created module file for the listed files.")
+              + "\n\n" + TRANS ("If the folder does not exist, it will be created.")
+              + "\n\n" + TRANS ("If the folder contains files with the same name, they will be overwritten!"));
 
     addTextEditor (txtAdditionalHeaders, juce::String::empty, lblAdditionalHeaders.getTooltip());
-    addTextEditor (txtModuleFilename, "MyModule", lblModuleFilename.getTooltip());
-    addTextEditor (txtHeaderGuard, "MYMODULE_H", lblHeaderGuard.getTooltip());
+    addTextEditor (txtModuleFilename, TRANS ("MyModule"), lblModuleFilename.getTooltip());
+    addTextEditor (txtHeaderGuard, TRANS ("MYMODULE_H"), lblHeaderGuard.getTooltip());
     addTextEditor (txtNamespace, juce::String::empty, lblNamespace.getTooltip());
     addTextEditor (txtDestinationFolder, juce::String::empty, lblDestinationFolder.getTooltip());
 
@@ -81,17 +81,17 @@ void ModulariserComponent::buttonClicked (juce::Button* const button)
         else
         {
             juce::AlertWindow::showMessageBox (juce::AlertWindow::WarningIcon,
-                                               "Invalid destination folder!",
-                                               "The path must be valid to have a place for generating files!",
+                                               TRANS ("Invalid destination folder!"),
+                                               TRANS ("The path must be valid to have a place for generating files!"),
                                                "OK");
 
             txtDestinationFolder.setText (juce::File::getSpecialLocation (juce::File::SpecialLocationType::userDesktopDirectory).getFullPathName()
-                                          + "/GeneratedModules/");
+                                          + "/" + TRANS ("GeneratedModules") + "/");
         }
     }
     else if (button == &btnBrowse)
     {
-        juce::FileChooser chooser ("Select a folder that will contain the generated module files.");
+        juce::FileChooser chooser (TRANS ("Select a folder that will contain the generated module files."));
 
         if (chooser.browseForDirectory())
         {

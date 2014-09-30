@@ -23,10 +23,6 @@
  #include "Components/ModulariserComponent.h"
 #endif //JRL_MODULARISER_COMPONENT_H
 
-#ifndef JRL_SPACING_GRABBER_H
- #include "Components/SpacingGrabber.h"
-#endif //JRL_SPACING_GRABBER_H
-
 #ifndef JRL_TABS_TO_SPACES_COMPONENT_H
  #include "Components/TabsToSpacesComponent.h"
 #endif //JRL_TABS_TO_SPACES_COMPONENT_H

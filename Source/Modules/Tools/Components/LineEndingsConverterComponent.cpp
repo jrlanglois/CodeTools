@@ -1,7 +1,7 @@
 LineEndingsConverterComponent::LineEndingsConverterComponent (const CodeFileList& codeFiles) :
-    ToolComponent ("Line-Endings Converter", codeFiles)
+    ToolComponent (TRANS ("Line-Endings Converter"), codeFiles)
 {
-    addTextButton (convert, "Convert", "Convert all the line-endings of the code files");
+    addTextButton (convert, TRANS ("Convert"), TRANS ("Convert all the line-endings of the code files"));
 
     formats.setEditableText (false);
     formats.addItemList (LineEndingsConverter::getEndingFormatsAsStrings(), 1);

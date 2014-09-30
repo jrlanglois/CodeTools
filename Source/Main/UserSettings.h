@@ -35,7 +35,7 @@ public:
     juce::String getString (const juce::String& name, const juce::String& defaultValue);
 
     /** */
-    bool getBool (const juce::String& name, bool defaultValue);
+    bool getBool (const juce::String& name, bool defaultValue = false);
 
     /** */
     int getInt (const juce::String& name, int defaultValue);

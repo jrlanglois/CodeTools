@@ -1,207 +1,34 @@
 #include "MainComponent.h"
 #include "BinaryData.h"
+#include "CommandIDs.h"
+#include "UserSettings.h"
+#include "../Windows/ConfigurationWindow.h"
 
 //==============================================================================
-class MainComponent::ToolbarItemFactory : public juce::ToolbarItemFactory
+MainComponent::MainComponent()
 {
-public:
-    ToolbarItemFactory (juce::Button::Listener& sourceListener) noexcept :
-        listener (sourceListener)
-    {
-        populateIcons();
-    }
+    codeFilesSizeConstrainer.setMinimumWidth (200);
+    codeFilesSizeConstrainer.setMaximumWidth (400);
 
-    //==============================================================================
-    enum ToolbarItemIds
-    {
-        ProjectNew = 1,
-        ProjectOpen,
-        ProjectSave,
-        ProjectSaveAs,
-        ProjectUndo,
-        ProjectRedo,
-        FilesConvertLineEndings,
-        FilesModularise,
-        FilesCapitaliseStringLiterals,
-        FilesConvertTabsToSpaces,
-        FilesCleanTrailingWhitespace,
-        Settings
-    };
+    codeFiles.setSize (300, 800);
 
-    //==============================================================================
-    void getAllToolbarItemIds (juce::Array<int>& ids) override
-    {
-        ids.add (ProjectNew);
-        ids.add (ProjectOpen);
-        ids.add (ProjectSave);
-        ids.add (ProjectSaveAs);
-        ids.add (ProjectUndo);
-        ids.add (ProjectRedo);
-        ids.add (FilesConvertLineEndings);
-        ids.add (FilesModularise);
-        ids.add (FilesCapitaliseStringLiterals);
-        ids.add (FilesConvertTabsToSpaces);
-        ids.add (FilesCleanTrailingWhitespace);
-        ids.add (Settings);
+    resizerBar = new juce::ResizableEdgeComponent (&codeFiles,
+                                                   &codeFilesSizeConstrainer,
+                                                   juce::ResizableEdgeComponent::rightEdge);
 
-        ids.add (separatorBarId);
-    }
-
-    void getDefaultItemSet (juce::Array<int>& ids) override
-    {
-        ids.add (ProjectNew);
-        ids.add (ProjectOpen);
-        ids.add (ProjectSave);
-        ids.add (ProjectSaveAs);
-
-        ids.add (separatorBarId);
-
-        ids.add (ProjectUndo);
-        ids.add (ProjectRedo);
-
-        ids.add (separatorBarId);
-
-        ids.add (FilesConvertLineEndings);
-        ids.add (FilesModularise);
-        ids.add (FilesCapitaliseStringLiterals);
-        ids.add (FilesConvertTabsToSpaces);
-        ids.add (FilesCleanTrailingWhitespace);
-
-        ids.add (separatorBarId);
-
-        ids.add (Settings);
-    }
-
-    juce::ToolbarItemComponent* createItem (int itemId) override
-    {
-        switch (itemId)
-        {
-            case ProjectNew:    return createButtonFromZipFileSVG (itemId, TRANS ("New"),
-                                                                   TRANS ("Create a new project"),
-                                                                   "document-new.svg");
-
-            case ProjectOpen:   return createButtonFromZipFileSVG (itemId, TRANS ("Open"),
-                                                                   TRANS ("Open an existing project"),
-                                                                   "document-open.svg");
-
-            case ProjectSave:   return createButtonFromZipFileSVG (itemId, TRANS ("Save"),
-                                                                   TRANS ("Save the current project"),
-                                                                   "document-save.svg");
-
-            case ProjectSaveAs: return createButtonFromZipFileSVG (itemId, TRANS ("Save As"),
-                                                                   TRANS ("Save the current project under a different name"),
-                                                                   "document-save-as.svg");
-
-            case ProjectUndo:   return createButtonFromZipFileSVG (itemId, TRANS ("Undo"),
-                                                                   TRANS ("Undo"),
-                                                                   "edit-undo.svg");
-
-            case ProjectRedo:   return createButtonFromZipFileSVG (itemId, TRANS ("Redo"),
-                                                                   TRANS ("Redo"),
-                                                                   "edit-redo.svg");
-
-            case FilesCapitaliseStringLiterals: return createButtonFromZipFileSVG (itemId, TRANS ("Capitalise String Literals"),
-                                                                   TRANS ("Capitalise string literals of the selected file(s)"),
-                                                                   "media-record.svg");
-
-            case FilesCleanTrailingWhitespace:  return createButtonFromZipFileSVG (itemId, TRANS ("Clean Trailing Whitespace"),
-                                                                   TRANS ("Trim out any desired trailing whitespace of the selected file(s)"),
-                                                                   "media-record.svg");
-
-            case FilesConvertLineEndings:       return createButtonFromZipFileSVG (itemId, TRANS ("Convert Line Endings"),
-                                                                   TRANS ("Convert the line endings of the selected file(s)"),
-                                                                   "media-record.svg");
-
-            case FilesConvertTabsToSpaces:      return createButtonFromZipFileSVG (itemId, TRANS ("Redo"),
-                                                                   TRANS ("Convert tabs in the selected file(s) to spaces"),
-                                                                   "media-record.svg");
-
-            case FilesModularise:               return createButtonFromZipFileSVG (itemId, TRANS ("Modularise"),
-                                                                   TRANS ("Create a C++ module out of the selected file(s)"),
-                                                                   "media-record.svg");
-
-            case Settings:      return createButtonFromZipFileSVG (itemId, TRANS ("Settings"),
-                                                                   TRANS ("Settings"),
-                                                                   "preferences-system.svg");
-
-            default:
-            break;
-        }
-
-        jassertfalse; //Unknown item ID!
-        return nullptr;
-    }
-
-private:
-    //==============================================================================
-    juce::Button::Listener& listener;
-    juce::StringArray iconNames;
-    juce::OwnedArray<juce::Drawable> iconsFromZipFile;
-
-    //==============================================================================
-    /** */
-    void populateIcons()
-    {
-        jassert (iconsFromZipFile.size() == 0);
-
-        juce::MemoryInputStream iconsFileStream (BinaryData::toolbarIconsZip, BinaryData::toolbarIconsZipSize, false);
-        juce::ZipFile icons (&iconsFileStream, false);
-
-        for (int i = 0; i < icons.getNumEntries(); ++i)
-        {
-            juce::ScopedPointer<juce::InputStream> svgFileStream (icons.createStreamForEntry (i));
-
-            if (svgFileStream != nullptr)
-            {
-                iconNames.add (icons.getEntry (i)->filename);
-                iconsFromZipFile.add (juce::Drawable::createFromImageDataStream (*svgFileStream));
-            }
-        }
-    }
-
-    /** This is a little utility to create a button with one of the SVG images from a binary data ZIP file */
-    juce::ToolbarButton* createButtonFromZipFileSVG (int itemId,
-                                                     const juce::String& text,
-                                                     const juce::String& tooltip,
-                                                     const juce::String& filename)
-    {
-        if (juce::Drawable* const image = iconsFromZipFile [iconNames.indexOf (filename)])
-        {
-            if (juce::Drawable* const imageCopy = image->createCopy())
-            {
-                juce::ToolbarButton* button = new juce::ToolbarButton (itemId, text, imageCopy, nullptr);
-                button->setTooltip (tooltip);
-                button->addListener (&listener);
-                return button;
-            }
-        }
-
-        jassertfalse; //Probably an incorrect file name
-        return nullptr;
-    }
-
-    //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ToolbarItemFactory)
-};
-
-//==============================================================================
-MainComponent::MainComponent() :
-    toolbar (new juce::Toolbar())
-{
-    toolbarItemFactory = new ToolbarItemFactory (*this);
-    toolbar->addDefaultItems (*toolbarItemFactory);
+    resizerBar->setAlwaysOnTop (true);
 
     codeEditor = new juce::CodeEditorComponent (codeDocument, nullptr);
 
-    addAndMakeVisible (toolbar);
     addAndMakeVisible (&codeFiles);
+    addAndMakeVisible (resizerBar);
     addAndMakeVisible (codeEditor);
 }
 
 MainComponent::~MainComponent()
 {
-    toolbar = nullptr;
-    toolbarItemFactory = nullptr;
+    resizerBar = nullptr;
+    codeEditor = nullptr;
 }
 
 //==============================================================================
@@ -212,94 +39,180 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-    const int width = getWidth();
-    const int height = getHeight();
+    juce::Rectangle<int> r (getLocalBounds());
 
-    toolbar->setBounds (0, 0, width, 48);
+    codeFiles.setBounds (r.removeFromLeft (codeFiles.getWidth()));
 
-    const int toolbarBottom = toolbar->getBottom();
-    const int itemHeight = height - toolbarBottom;
+    if (resizerBar != nullptr)
+        resizerBar->setBounds (r.withWidth (4));
 
-    codeFiles.setBounds (0,
-                         toolbarBottom,
-                         juce::roundToIntAccurate ((double) width * (1.0 / 3.0)),
-                         itemHeight);
-
-    const int codeFilesRight = codeFiles.getRight();
-    codeEditor->setBounds (codeFilesRight,
-                           toolbarBottom,
-                           width - codeFilesRight,
-                           itemHeight);
+    if (codeEditor != nullptr)
+        codeEditor->setBounds (r);
 }
 
-void MainComponent::buttonClicked (juce::Button* const button)
+void MainComponent::childBoundsChanged (juce::Component* child)
 {
-    if (juce::ToolbarButton* tb = dynamic_cast<juce::ToolbarButton*> (button))
-    {
-        CodeFileList codeFilesToEdit;
-
-        {
-            juce::StringArray files (codeFiles.getSelectedCodeFiles());
-
-            if (files.size() <= 0)
-            {
-                const juce::Array<juce::File>& list (codeFiles.getCodeFiles().getFiles());
-
-                for (int i = 0; i < list.size(); ++i)
-                    files.addIfNotAlreadyThere (list.getUnchecked (i).getFullPathName());
-            }
-
-            codeFilesToEdit.addFiles (files);
-        }
-
-        switch (tb->getItemId())
-        {
-            case ToolbarItemFactory::ProjectNew:
-            break;
-
-            case ToolbarItemFactory::ProjectOpen:
-            break;
-
-            case ToolbarItemFactory::ProjectSave:
-            break;
-
-            case ToolbarItemFactory::ProjectSaveAs:
-            break;
-
-            case ToolbarItemFactory::ProjectUndo:
-                undoManager.undo();
-            break;
-
-            case ToolbarItemFactory::ProjectRedo:
-                undoManager.redo();
-            break;
-
-            case ToolbarItemFactory::FilesCapitaliseStringLiterals:
-            break;
-
-            case ToolbarItemFactory::FilesCleanTrailingWhitespace:
-                TrailingWhitespaceCleaner (codeFilesToEdit)
-                    .perform (true,
-                              TrailingWhitespaceCleaner::RemoveAll);
-            break;
-
-            case ToolbarItemFactory::FilesConvertLineEndings:
-            break;
-
-            case ToolbarItemFactory::FilesConvertTabsToSpaces:
-            break;
-
-            case ToolbarItemFactory::FilesModularise:
-            break;
-
-            case ToolbarItemFactory::Settings:
-            break;
-
-            default:
-                jassertfalse;
-            break;
-        };
-    }
+    if (child == &codeFiles)
+        resized();
 }
 
 //==============================================================================
+juce::ApplicationCommandTarget* MainComponent::getNextCommandTarget()
+{
+    return nullptr;
+}
+
+void MainComponent::getAllCommands (juce::Array<juce::CommandID>& commands)
+{
+    const juce::OwnedArray<juce::ApplicationCommandInfo>& aci
+        = CommandIDs::CommandIDHelper::getInstance()->commands;
+
+    for (int i = aci.size(); --i >= 0;)
+        commands.addIfNotAlreadyThere (aci.getUnchecked (i)->commandID);
+
+    juce::DefaultElementComparator<juce::CommandID> comparator;
+    commands.sort (comparator);
+}
+
+void MainComponent::getCommandInfo (const juce::CommandID commandID,
+                                    juce::ApplicationCommandInfo& result)
+{
+    const juce::OwnedArray<juce::ApplicationCommandInfo>& aci
+        = CommandIDs::CommandIDHelper::getInstance()->commands;
+
+    for (int i = aci.size(); --i >= 0;)
+    {
+        juce::ApplicationCommandInfo& cmd = *aci.getUnchecked (i);
+
+        if (commandID == cmd.commandID)
+        {
+            result = cmd;
+            break;
+        }
+    }
+}
+
+bool MainComponent::perform (const juce::ApplicationCommandTarget::InvocationInfo& info)
+{
+    CodeFileList codeFilesToEdit;
+
+    {
+        juce::StringArray files (codeFiles.getSelectedCodeFiles());
+
+        if (files.size() <= 0)
+        {
+            const juce::Array<juce::File>& list (codeFiles.getCodeFiles().getFiles());
+
+            for (int i = 0; i < list.size(); ++i)
+                files.addIfNotAlreadyThere (list.getUnchecked (i).getFullPathName());
+        }
+
+        codeFilesToEdit.addFiles (files);
+    }
+
+    switch (info.commandID)
+    {
+        case CommandIDs::ProjectNew:
+        {
+        }
+        break;
+
+        case CommandIDs::ProjectOpen:
+        {
+        }
+        break;
+
+        case CommandIDs::ProjectSave:
+        {
+        }
+        break;
+
+        case CommandIDs::ProjectSaveAs:
+        {
+        }
+        break;
+
+        case CommandIDs::ProjectClose:
+        {
+        }
+        break;
+
+        case CommandIDs::OpenFiles:
+        {
+        }
+        break;
+
+        case CommandIDs::OpenIntrojucerProject:
+        {
+        }
+        break;
+
+        case CommandIDs::Exit:
+        {
+        }
+        break;
+
+        case CommandIDs::EditUndo:
+        {
+            undoManager.undo();
+        }
+        break;
+
+        case CommandIDs::EditRedo:
+        {
+            undoManager.redo();
+        }
+        break;
+
+        case CommandIDs::FilesCapitaliseStringLiterals:
+        {
+        }
+        break;
+
+        case CommandIDs::FilesCleanTrailingWhitespace:
+        {
+            TrailingWhitespaceCleaner (codeFilesToEdit)
+                .perform (UserSettings::getInstance()->getBool ("RemoveDocumentStartWhitespace"),
+                          (TrailingWhitespaceCleaner::WhitespaceRemovalOptions) UserSettings::getInstance()->getInt ("RemoveDocumentStartWhitespace",
+                                                                                (int) TrailingWhitespaceCleaner::RemoveAll));
+        }
+        break;
+
+        case CommandIDs::FilesConvertLineEndings:
+        {
+        }
+        break;
+
+        case CommandIDs::FilesConvertTabsToSpaces:
+        {
+        }
+        break;
+
+        case CommandIDs::FilesModularise:
+        {
+        }
+        break;
+
+        case CommandIDs::ShowSettings:
+        {
+            BasicWindow* doc = new BasicWindow (TRANS ("Settings"), juce::Colours::darkgrey, juce::DocumentWindow::closeButton);
+
+            doc->setResizable (false, false);
+            doc->setUsingNativeTitleBar (true);
+
+            ConfigurationWindow* cw = new ConfigurationWindow();
+            doc->setContentOwned (cw, true);
+            doc->centreWithSize (cw->getWidth(), cw->getHeight());
+
+            doc->setVisible (true);
+        }
+        break;
+
+        default:
+            jassertfalse;
+            return false;
+        break;
+    };
+
+    return true;
+}

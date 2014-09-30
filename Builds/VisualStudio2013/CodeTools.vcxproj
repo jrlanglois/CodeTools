@@ -238,6 +238,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\Main\BinaryData.cpp" />
+    <ClCompile Include="..\..\Source\Main\CommandIDs.cpp" />
     <ClCompile Include="..\..\Source\Main\Main.cpp" />
     <ClCompile Include="..\..\Source\Main\MainComponent.cpp" />
     <ClCompile Include="..\..\Source\Main\MainWindow.cpp" />
@@ -250,9 +251,6 @@
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.cpp">
-      <ExcludedFromBuild>true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.cpp">
@@ -1125,6 +1123,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\Main\BinaryData.h" />
+    <ClInclude Include="..\..\Source\Main\CommandIDs.h" />
     <ClInclude Include="..\..\Source\Main\Main.h" />
     <ClInclude Include="..\..\Source\Main\MainComponent.h" />
     <ClInclude Include="..\..\Source\Main\MainWindow.h" />
@@ -1133,7 +1132,6 @@
     <ClInclude Include="..\..\Source\Modules\Tools\Components\CodeFileListComponent.h" />
     <ClInclude Include="..\..\Source\Modules\Tools\Components\LineEndingsConverterComponent.h" />
     <ClInclude Include="..\..\Source\Modules\Tools\Components\ModulariserComponent.h" />
-    <ClInclude Include="..\..\Source\Modules\Tools\Components\SpacingGrabber.h" />
     <ClInclude Include="..\..\Source\Modules\Tools\Components\TabsToSpacesComponent.h" />
     <ClInclude Include="..\..\Source\Modules\Tools\Components\ToolComponent.h" />
     <ClInclude Include="..\..\Source\Modules\Tools\Components\TrailingWhitespaceCleanerComponent.h" />

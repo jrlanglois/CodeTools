@@ -1,8 +1,8 @@
 TabsToSpacesComponent::TabsToSpacesComponent (const CodeFileList& codeFiles) :
     ToolComponent ("Tabs to Spaces", codeFiles)
 {
-    addTextButton (convert, "Convert", "Convert all \"\\t\" (aka: tab) characters to a desired number of spaces (or 1, or none)");
-    addLabel (lblSpaceChanger, "Num spaces:", "");
+    addTextButton (convert, TRANS ("Convert"), TRANS ("Convert all \"\\t\" (aka: tab) characters to a desired number of spaces (or 1, or none)"));
+    addLabel (lblSpaceChanger, TRANS ("Num spaces") + ":", "");
 
     spaceChanger.setTextBoxStyle (juce::Slider::TextBoxRight, true, getItemHeight() + getMarginSize(), getItemHeight());
     spaceChanger.setRange (0.0, (double) TabsToSpaces::getMaxNumSpacesPerTab(), 1.0);

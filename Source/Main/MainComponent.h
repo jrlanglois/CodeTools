@@ -9,7 +9,7 @@
 
 */
 class MainComponent : public juce::Component,
-                      private juce::Button::Listener
+                      public juce::ApplicationCommandTarget
 {
 public:
     /** Constructor */
@@ -24,21 +24,45 @@ public:
     /** @internal */
     void resized() override;
     /** @internal */
-    void buttonClicked (juce::Button* button) override;
+    void childBoundsChanged (juce::Component* child) override;
+    /** @internal */
+    juce::ApplicationCommandTarget* getNextCommandTarget() override;
+    /** @internal */
+    void getAllCommands (juce::Array<juce::CommandID>& commands) override;
+    /** @internal */
+    void getCommandInfo (juce::CommandID commandID, juce::ApplicationCommandInfo& result) override;
+    /** @internal */
+    bool perform (const juce::ApplicationCommandTarget::InvocationInfo& info) override;
 
 private:
     //==============================================================================
-    class ToolbarItemFactory;
+    class BasicWindow : public juce::DocumentWindow
+    {
+    public:
+        BasicWindow (const juce::String& name, juce::Colour backgroundColour, int buttonsNeeded) :
+            juce::DocumentWindow (name, backgroundColour, buttonsNeeded)
+        {
+        }
+
+        void closeButtonPressed() override
+        {
+            delete this;
+        }
+
+    private:
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (BasicWindow)
+    };
 
     //==============================================================================
     juce::TooltipWindow tooltipWindow;
     juce::SystemTrayIconComponent trayIcon;
     juce::UndoManager undoManager;
 
-    juce::ScopedPointer<ToolbarItemFactory> toolbarItemFactory;
-    juce::ScopedPointer<juce::Toolbar> toolbar;
-
     CodeFileListComponent codeFiles;
+
+    juce::ScopedPointer<juce::ResizableEdgeComponent> resizerBar;
+    juce::ComponentBoundsConstrainer codeFilesSizeConstrainer;
+
     juce::CodeDocument codeDocument;
     juce::ScopedPointer<juce::CodeEditorComponent> codeEditor;
 

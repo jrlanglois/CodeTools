@@ -26,14 +26,14 @@ void CodeFileListComponent::clearFiles()
 {
     if (codeFiles.getNumFiles() > 0)
     {
-        juce::AlertWindow window ("Clear the files?",
-                                  "Are you sure you want to clear all the code files?",
+        juce::AlertWindow window (TRANS ("Clear the files?"),
+                                  TRANS ("Are you sure you want to clear all the code files?"),
                                   juce::AlertWindow::InfoIcon);
 
         enum Results { Yes = 0, No };
 
-        window.addButton ("Yes", Yes);
-        window.addButton ("No", No);
+        window.addButton (TRANS ("Yes"), Yes);
+        window.addButton (TRANS ("No"), No);
 
         if (window.runModalLoop() == Yes)
         {

@@ -28,4 +28,14 @@
     #pragma warning (default: 4946)     //reinterpret_cast used between related classes: 'class1' and 'class2'
 #endif //JUCE_MSVC
 
+/** Runs TRANS() over every string contained in the array
+
+    @param[in/out] The strings to translate back into the given array
+*/
+static void translate (juce::StringArray& strings)
+{
+    for (int i = strings.size(); --i >= 0;)
+        strings.strings.setUnchecked (i, TRANS (strings.getReference (i)));
+}
+
 #endif //JRL_CORE_H

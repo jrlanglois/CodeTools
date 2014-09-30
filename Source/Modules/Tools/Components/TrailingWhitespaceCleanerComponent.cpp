@@ -1,22 +1,28 @@
 TrailingWhitespaceCleanerComponent::TrailingWhitespaceCleanerComponent (const CodeFileList& codeFiles) :
     ToolComponent ("Trailing Whitespace Cleaner", codeFiles)
 {
-    addTextButton (apply, "Clean", "Clean up the whitespace in the code files");
+    addTextButton (apply, TRANS ("Clean"), TRANS ("Clean up the whitespace in the code files"));
 
     removeDocumentStartWhitespace.setToggleState (true, juce::dontSendNotification);
-    removeDocumentStartWhitespace.setButtonText ("Remove document-start whitespace");
-    removeDocumentStartWhitespace.setTooltip ("This will remove any whitespace located at the start of the code files");
+    removeDocumentStartWhitespace.setButtonText (TRANS ("Remove document-start whitespace"));
+    removeDocumentStartWhitespace.setTooltip (TRANS ("This will remove any whitespace located at the start of the code files"));
 
-    const char* const options[] =
     {
-        "Do nothing",
-        "Remove All",
-        "Keep one blank line (C++ standard\")",
-        nullptr
-    };
+        static const char* const ops[] =
+        {
+            NEEDS_TRANS ("Do nothing"),
+            NEEDS_TRANS ("Remove All"),
+            NEEDS_TRANS ("Keep one blank line (C++ standard\")"),
+            nullptr
+        };
 
-    documentEndOptions.addItemList (juce::StringArray (options), 1);
-    documentEndOptions.setTooltip ("This will allow removing any whitespace located at the end of the code files");
+        juce::StringArray options (ops);
+        translate (options);
+
+        documentEndOptions.addItemList (options, 1);
+    }
+
+    documentEndOptions.setTooltip (TRANS ("This will allow removing any whitespace located at the end of the code files"));
     documentEndOptions.setSelectedItemIndex (2, juce::dontSendNotification);
 
     addAndMakeVisible (&removeDocumentStartWhitespace);
