@@ -1,6 +1,7 @@
 #ifndef BINARY_DATA_H
 #define BINARY_DATA_H
 
+//Test github commit
 namespace BinaryData
 {
     extern const char* toolbarIconsZip;
