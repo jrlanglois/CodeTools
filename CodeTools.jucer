@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="lpLGEN" name="CodeTools" projectType="guiapp" version="1.0.0"
-              bundleIdentifier="com.yourcompany.CodeTools" includeBinaryInAppConfig="1"
+              bundleIdentifier="com.jrlanglois.CodeTools" includeBinaryInAppConfig="0"
               jucerVersion="3.2.0">
   <MAINGROUP id="bX6Q9c" name="CodeTools">
     <GROUP id="{4F5EF973-C4BD-9AFE-C3A3-60D6C935D19E}" name="Main">
@@ -219,6 +219,23 @@
         <MODULEPATH id="juce_core" path="../juce/modules"/>
       </MODULEPATHS>
     </CODEBLOCKS_LINUX>
+    <LINUX_MAKE targetFolder="Builds/LinuxMakefile">
+      <CONFIGURATIONS>
+        <CONFIGURATION name="Debug" libraryPath="/usr/X11R6/lib/" isDebug="1" optimisation="1"
+                       targetName="CodeTools"/>
+        <CONFIGURATION name="Release" libraryPath="/usr/X11R6/lib/" isDebug="0" optimisation="3"
+                       targetName="CodeTools"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_gui_extra" path="../juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../juce/modules"/>
+        <MODULEPATH id="juce_events" path="../juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../juce/modules"/>
+        <MODULEPATH id="juce_cryptography" path="../juce/modules"/>
+        <MODULEPATH id="juce_core" path="../juce/modules"/>
+      </MODULEPATHS>
+    </LINUX_MAKE>
   </EXPORTFORMATS>
   <MODULES>
     <MODULES id="juce_core" showAllCode="1" useLocalCopy="0"/>

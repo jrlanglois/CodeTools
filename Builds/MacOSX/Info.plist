@@ -8,7 +8,7 @@
     <key>CFBundleIconFile</key>
     <string></string>
     <key>CFBundleIdentifier</key>
-    <string>com.yourcompany.CodeTools</string>
+    <string>com.jrlanglois.CodeTools</string>
     <key>CFBundleName</key>
     <string>CodeTools</string>
     <key>CFBundlePackageType</key>
