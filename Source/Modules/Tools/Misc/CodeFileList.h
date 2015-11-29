@@ -105,13 +105,16 @@ public:
 private:
     //==============================================================================
     juce::Array<juce::File> files;
-    const juce::String wildcards;
+    const juce::String wildcards, asteriskFreeWildcards;
     juce::UndoManager* undoManager;
     juce::ListenerList<Listener> listeners;
 
     //==============================================================================
     /** */
-    bool isValid (const juce::String& filepath);
+    bool isValid (const juce::File& file) const;
+
+    /** */
+    bool isValid (const juce::String& filepath) const;
 
     /** */
     void cleanUpFileList();

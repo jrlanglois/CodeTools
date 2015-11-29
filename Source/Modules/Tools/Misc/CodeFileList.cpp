@@ -2,7 +2,8 @@
 
 //==============================================================================
 CodeFileList::CodeFileList (juce::UndoManager* um) noexcept :
-    wildcards (getAllWildcards().removeCharacters ("*")),
+    wildcards (getAllWildcards()),
+    asteriskFreeWildcards (getAllWildcards().removeCharacters ("*")),
     undoManager (um)
 {
 }
@@ -29,10 +30,10 @@ void CodeFileList::addDirectory (const juce::File& file)
     if (file.isDirectory())
     {
         juce::Array<juce::File> results;
-        file.findChildFiles (results, juce::File::findFiles, true, wildcards);
+        file.findChildFiles (results, juce::File::findFilesAndDirectories, true, wildcards);
 
         for (int i = results.size(); --i >= 0;)
-            files.addIfNotAlreadyThere (results.getReference (i).getFullPathName()); //N.B.: Don't use addFile() - it will be a redundant check to see if the file is valid
+            addDirectory (results.getReference (i)); //N.B.: Don't use addFile() - it will be a redundant check to see if the file is valid
     }
     else
     {
@@ -63,12 +64,11 @@ void CodeFileList::removeFile (const int index)
 
 void CodeFileList::cleanUpFileList()
 {
-    //files.sort(
 }
 
 void CodeFileList::clearFiles()
 {
-    //Non-mobile devices can usually handle a bit more
+    //Desktops can usually handle a bit more
     //memory usage without caring about energy usage.
    #if JUCE_WINDOWS || JUCE_MAC
     files.clearQuick();
@@ -123,12 +123,17 @@ bool CodeFileList::containsOldCStyleCodeFiles() const
 }
 
 //==============================================================================
-bool CodeFileList::isValid (const juce::String& filepath)
+bool CodeFileList::isValid (const juce::File& file) const
 {
-    if (filepath.isNotEmpty())
-        return juce::File (filepath).hasFileExtension (wildcards);
+    if (file.existsAsFile())
+        return file.hasFileExtension (asteriskFreeWildcards);
 
     return false;
+}
+
+bool CodeFileList::isValid (const juce::String& filepath) const
+{
+    return isValid (juce::File (filepath));
 }
 
 //==============================================================================
