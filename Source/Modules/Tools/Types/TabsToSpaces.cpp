@@ -24,6 +24,14 @@ void TabsToSpaces::cleanFile (const juce::File& file, const juce::String& spaceS
     juce::StringArray lines;
     file.readLines (lines);
 
+    if (lines.size() <= 0)
+        return;
+
+    while (lines.strings.getLast().trim().isEmpty())
+        lines.remove (lines.size() - 1);
+
+    lines.minimiseStorageOverheads();
+
     //Replace the tab character:
     for (int i = lines.size(); --i >= 0;)
         lines.getReference (i) = lines.getReference (i).replace ("\t", spaceString, true);

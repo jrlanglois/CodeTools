@@ -14,39 +14,6 @@ void TrailingWhitespaceCleaner::cleanLine (juce::String& line)
                .trimCharactersAtEnd ("\t");
 }
 
-//==============================================================================
-bool TrailingWhitespaceCleaner::cleanFromBound (juce::StringArray& lines, const int index)
-{
-    juce::String& string = lines.getReference (index);
-    cleanLine (string);
-
-    if (string.isEmpty())
-        lines.remove (index);
-    else
-        return true;
-
-    return false;
-}
-
-int TrailingWhitespaceCleaner::cleanFileStart (juce::StringArray& lines)
-{
-    for (int i = 0; i < lines.size(); ++i)
-        if (cleanFromBound (lines, i))
-            return i;
-
-    return 0;
-}
-
-int TrailingWhitespaceCleaner::cleanFileEnd (juce::StringArray& lines)
-{
-    for (int i = lines.size(); --i >= 0;)
-        if (cleanFromBound (lines, i))
-            return i;
-
-    return lines.size();
-}
-
-//==============================================================================
 void TrailingWhitespaceCleaner::cleanRange (juce::StringArray& lines, const int start, const int end)
 {
     for (int i = start; i < end; ++i)
@@ -64,24 +31,65 @@ void TrailingWhitespaceCleaner::cleanFile (const juce::File& file,
     juce::StringArray lines;
     file.readLines (lines);
 
-    cleanRange (lines,
-                removeDocumentStartWhitespace
-                    ? cleanFileStart (lines)
-                    : 0,
-                documentEndOptions != DoNothing
-                    ? cleanFileEnd (lines)
-                    : lines.size());
+    if (lines.size() <= 0)
+        return;
 
-    const juce::String last (lines.strings.getLast().trim());
+    while (lines.strings.getLast().trim().isEmpty())
+        lines.remove (lines.size() - 1);
 
-    if (documentEndOptions == KeepOneBlankLine
-        && lines.size() > 0 && last.isNotEmpty()
-        && last != "\r" && last != "\n"
-        && last != juce::newLine.getDefault() && last != "\n\r")
+    lines.minimiseStorageOverheads();
+
+    cleanRange (lines, 0, lines.size());
+
+    if (removeDocumentStartWhitespace)
     {
-        lines.add (juce::newLine);
+        for (int i = 0; i < lines.size(); ++i)
+        {
+            if (lines[i].isEmpty())
+            {
+                lines.remove (i);
+                --i;
+            }
+            else
+            {
+                break;
+            }
+        }
     }
 
+    //Remove empty lines at the end of the file:
+    for (int i = lines.size(); --i >= 0;)
+    {
+        if (lines[i].isEmpty())
+            lines.remove (i);
+        else
+            break;
+    }
+#if 0
+    if (documentEndOptions == KeepOneBlankLine)
+    {
+        const juce::String last (lines.strings[lines.size() - 1].trim());
+
+        if (lines.size() == 0)
+        {
+            lines.add (juce::newLine);
+        }
+        else
+        {
+            if (last.isNotEmpty())
+            {
+                if (last == "\r" || last == "\n" || last == "\n\r" || last == "\r\n")
+                    lines.strings.getReference (lines.size() - 1) = juce::newLine;
+                else
+                    lines.add (juce::newLine);
+            }
+            else
+            {
+                lines.strings.getReference (lines.size() - 1) = juce::newLine;
+            }
+        }
+    }
+#endif
     juce::ScopedPointer<juce::FileOutputStream> stream (file.createOutputStream());
 
     if (stream != nullptr)

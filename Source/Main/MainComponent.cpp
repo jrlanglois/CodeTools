@@ -170,12 +170,10 @@ bool MainComponent::perform (const juce::ApplicationCommandTarget::InvocationInf
         break;
 
         case CommandIDs::FilesCleanTrailingWhitespace:
-        {
             TrailingWhitespaceCleaner (codeFilesToEdit)
                 .perform (UserSettings::getInstance()->getBool ("RemoveDocumentStartWhitespace"),
                           (TrailingWhitespaceCleaner::WhitespaceRemovalOptions) UserSettings::getInstance()->getInt ("RemoveDocumentStartWhitespace",
-                                                                                (int) TrailingWhitespaceCleaner::RemoveAll));
-        }
+                                                                                (int) TrailingWhitespaceCleaner::KeepOneBlankLine));
         break;
 
         case CommandIDs::FilesConvertLineEndings:
@@ -184,8 +182,7 @@ bool MainComponent::perform (const juce::ApplicationCommandTarget::InvocationInf
         break;
 
         case CommandIDs::FilesConvertTabsToSpaces:
-        {
-        }
+            TabsToSpaces (codeFilesToEdit).perform (UserSettings::getInstance()->getInt ("NumSpacesOnTabReplace", 4));
         break;
 
         case CommandIDs::FilesModularise:

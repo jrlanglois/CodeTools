@@ -27,12 +27,6 @@ private:
     //==============================================================================
     void cleanLine (juce::String& line);
 
-    /** @returns True if given index is the bound */
-    bool cleanFromBound (juce::StringArray& lines, int index);
-
-    int cleanFileStart (juce::StringArray& lines);
-    int cleanFileEnd (juce::StringArray& lines);
-
     void cleanRange (juce::StringArray& lines, int start, int end);
 
     void cleanFile (const juce::File& file,
@@ -40,7 +34,7 @@ private:
                     WhitespaceRemovalOptions documentEndRemovalOptions);
 
     //==============================================================================
-    TrailingWhitespaceCleaner();
+    TrailingWhitespaceCleaner() JUCE_DELETED_FUNCTION;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TrailingWhitespaceCleaner)
 };
 

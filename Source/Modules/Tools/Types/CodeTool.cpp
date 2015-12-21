@@ -30,8 +30,8 @@ void CodeTool::writeLinesToStream (juce::FileOutputStream* stream,
 
         for (int i = 0; i < size; ++i)
         {
-            stream->writeText (lines.getReference (i)
-                                    + (i == (size - 1) ? juce::String::empty : lineEnding),
+            const juce::String& line = lines.getReference (i);
+            stream->writeText (line + (line.endsWith (lineEnding) ? juce::String::empty : lineEnding),
                                false, false);
         }
     }
