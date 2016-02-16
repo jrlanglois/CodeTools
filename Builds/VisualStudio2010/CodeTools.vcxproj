@@ -1068,6 +1068,7 @@
     <ClInclude Include="..\..\..\juce\modules\juce_core\maths\juce_NormalisableRange.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\maths\juce_Random.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\maths\juce_Range.h"/>
+    <ClInclude Include="..\..\..\juce\modules\juce_core\maths\juce_StatisticsAccumulator.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\memory\juce_Atomic.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\memory\juce_ByteOrder.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\memory\juce_ContainerDeletePolicy.h"/>
@@ -1088,6 +1089,7 @@
     <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_ElementComparator.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_HashMap.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_LinkedListPointer.h"/>
+    <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_ListenerList.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_NamedValueSet.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_OwnedArray.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\containers\juce_PropertySet.h"/>
@@ -1157,6 +1159,7 @@
     <ClInclude Include="..\..\..\juce\modules\juce_core\misc\juce_WindowsRegistry.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\native\juce_android_JNIHelpers.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\native\juce_BasicNativeHeaders.h"/>
+    <ClInclude Include="..\..\..\juce\modules\juce_core\native\juce_mac_ClangBugWorkaround.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\native\juce_osx_ObjCHelpers.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\native\juce_posix_SharedCode.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_core\native\juce_win32_ComSmartPtr.h"/>
@@ -1192,7 +1195,6 @@
     <ClInclude Include="..\..\..\juce\modules\juce_events\broadcasters\juce_AsyncUpdater.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_events\broadcasters\juce_ChangeBroadcaster.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_events\broadcasters\juce_ChangeListener.h"/>
-    <ClInclude Include="..\..\..\juce\modules\juce_events\broadcasters\juce_ListenerList.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_events\interprocess\juce_ConnectedChildProcess.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_events\interprocess\juce_InterprocessConnection.h"/>
     <ClInclude Include="..\..\..\juce\modules\juce_events\interprocess\juce_InterprocessConnectionServer.h"/>

@@ -2,7 +2,7 @@
 
 <JUCERPROJECT id="lpLGEN" name="CodeTools" projectType="guiapp" version="1.0.0"
               bundleIdentifier="com.jrlanglois.CodeTools" includeBinaryInAppConfig="0"
-              jucerVersion="4.0.2">
+              jucerVersion="4.1.0">
   <MAINGROUP id="bX6Q9c" name="CodeTools">
     <GROUP id="{4F5EF973-C4BD-9AFE-C3A3-60D6C935D19E}" name="Main">
       <FILE id="DKseAY" name="BinaryData.cpp" compile="1" resource="0" file="Source/Main/BinaryData.cpp"/>

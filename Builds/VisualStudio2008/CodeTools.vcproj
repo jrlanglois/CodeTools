@@ -462,6 +462,7 @@
           </File>
           <File RelativePath="..\..\..\juce\modules\juce_core\maths\juce_Random.h"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\maths\juce_Range.h"/>
+          <File RelativePath="..\..\..\juce\modules\juce_core\maths\juce_StatisticsAccumulator.h"/>
         </Filter>
         <Filter Name="memory">
           <File RelativePath="..\..\..\juce\modules\juce_core\memory\juce_Atomic.h"/>
@@ -516,6 +517,7 @@
           <File RelativePath="..\..\..\juce\modules\juce_core\containers\juce_ElementComparator.h"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\containers\juce_HashMap.h"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\containers\juce_LinkedListPointer.h"/>
+          <File RelativePath="..\..\..\juce\modules\juce_core\containers\juce_ListenerList.h"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\containers\juce_NamedValueSet.cpp">
             <FileConfiguration Name="Debug|Win32"
                                ExcludedFromBuild="true">
@@ -1171,6 +1173,7 @@
               <Tool Name="VCCLCompilerTool"/>
             </FileConfiguration>
           </File>
+          <File RelativePath="..\..\..\juce\modules\juce_core\native\juce_mac_ClangBugWorkaround.h"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\native\juce_mac_Files.mm"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\native\juce_mac_Network.mm"/>
           <File RelativePath="..\..\..\juce\modules\juce_core\native\juce_mac_Strings.mm"/>
@@ -1533,7 +1536,6 @@
           </File>
           <File RelativePath="..\..\..\juce\modules\juce_events\broadcasters\juce_ChangeBroadcaster.h"/>
           <File RelativePath="..\..\..\juce\modules\juce_events\broadcasters\juce_ChangeListener.h"/>
-          <File RelativePath="..\..\..\juce\modules\juce_events\broadcasters\juce_ListenerList.h"/>
         </Filter>
         <Filter Name="interprocess">
           <File RelativePath="..\..\..\juce\modules\juce_events\interprocess\juce_ConnectedChildProcess.cpp">
